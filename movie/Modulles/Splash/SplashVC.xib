@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SplashVC" customModule="movie_dev" customModuleProvider="target">
+            <connections>
+                <outlet property="constAppIcon" destination="O83-4o-Gzl" id="OVh-hi-mIW"/>
+                <outlet property="constAppName" destination="fki-dg-SoL" id="pCN-Tv-vae"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_splash_logo" translatesAutoresizingMaskIntoConstraints="NO" id="y6v-5s-HFF" userLabel="imgLogo">
+                    <rect key="frame" x="116.66666666666669" y="1237" width="160" height="160"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="y6v-5s-HFF" secondAttribute="height" id="9x3-vt-eRN"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_splash_title" translatesAutoresizingMaskIntoConstraints="NO" id="vFg-tG-McD" userLabel="imgTitle">
+                    <rect key="frame" x="-925" y="397" width="243" height="58"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.17254901960784313" green="0.1725490093" blue="0.1764705926" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="y6v-5s-HFF" firstAttribute="width" secondItem="y6v-5s-HFF" secondAttribute="height" id="3u8-OF-TCQ"/>
+                <constraint firstItem="vFg-tG-McD" firstAttribute="top" secondItem="y6v-5s-HFF" secondAttribute="bottom" constant="-1000" id="O83-4o-Gzl"/>
+                <constraint firstItem="vFg-tG-McD" firstAttribute="width" secondItem="vFg-tG-McD" secondAttribute="height" multiplier="243 / 58" id="f5Z-IT-CdU"/>
+                <constraint firstItem="vFg-tG-McD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-1000" id="fki-dg-SoL"/>
+                <constraint firstItem="y6v-5s-HFF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="sE9-QB-XAZ"/>
+                <constraint firstItem="vFg-tG-McD" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="zSW-fF-uAK"/>
+            </constraints>
+            <point key="canvasLocation" x="-71" y="-33"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_splash_logo" width="150" height="160"/>
+        <image name="ic_splash_title" width="243" height="58"/>
+    </resources>
+</document>

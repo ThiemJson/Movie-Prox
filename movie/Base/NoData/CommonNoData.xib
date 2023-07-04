@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommonNoData" customModule="movie_dev" customModuleProvider="target">
+            <connections>
+                <outlet property="constContentVert" destination="GJA-hK-NM8" id="RQt-E0-WaF"/>
+                <outlet property="constImgPaddignToFirstTitle" destination="XTZ-MM-4fE" id="soM-pI-Bww"/>
+                <outlet property="cotnrstIcon" destination="HYF-fi-a9T" id="Roj-qb-SDC"/>
+                <outlet property="imgNodata" destination="ktZ-oE-Hlu" id="Ook-P8-yfn"/>
+                <outlet property="lblBtn" destination="mlG-56-AG1" id="rTB-SG-Cl0"/>
+                <outlet property="lblTitle1" destination="LYM-NK-ovk" id="0nl-jN-9Xj"/>
+                <outlet property="lblTitle2" destination="X2B-Pr-YXE" id="HPT-6N-k4F"/>
+                <outlet property="mainView" destination="iN0-l3-epB" id="gl3-Ft-1WG"/>
+                <outlet property="vBtn" destination="qxu-g8-Zvh" id="8Ye-fM-kt9"/>
+                <outlet property="vContentView" destination="43a-6y-IF4" id="NVR-nC-VpI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="43a-6y-IF4" userLabel="vNoData">
+                    <rect key="frame" x="39.333333333333343" y="286.33333333333331" width="314.33333333333326" height="244.33333333333331"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_empty_favorite" translatesAutoresizingMaskIntoConstraints="NO" id="ktZ-oE-Hlu" userLabel="imgNoData">
+                            <rect key="frame" x="97.333333333333314" y="0.0" width="119.66666666666669" height="119.33333333333333"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="ktZ-oE-Hlu" secondAttribute="height" id="VAA-pm-JPg"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don’t have any movie favorite yet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYM-NK-ovk" userLabel="lblTitle1">
+                            <rect key="frame" x="16" y="127.33333333333336" width="282.66666666666669" height="20.333333333333329"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to favorite list movie to watching !" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2B-Pr-YXE" userLabel="lblTitle2">
+                            <rect key="frame" x="12.666666666666657" y="155.66666666666669" width="289.33333333333337" height="20.333333333333343"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxu-g8-Zvh" userLabel="vBtn">
+                            <rect key="frame" x="86.333333333333343" y="184" width="142" height="52.333333333333343"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to watchlist" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlG-56-AG1" userLabel="lblBtn">
+                                    <rect key="frame" x="9.9999999999999858" y="15.999999999999998" width="122.00000000000001" height="20.333333333333329"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="mlG-56-AG1" secondAttribute="bottom" constant="16" id="V46-P8-hg7"/>
+                                <constraint firstItem="mlG-56-AG1" firstAttribute="leading" secondItem="qxu-g8-Zvh" secondAttribute="leading" constant="10" id="apU-Yu-bNQ"/>
+                                <constraint firstItem="mlG-56-AG1" firstAttribute="top" secondItem="qxu-g8-Zvh" secondAttribute="top" constant="16" id="rdS-R6-b5o"/>
+                                <constraint firstAttribute="trailing" secondItem="mlG-56-AG1" secondAttribute="trailing" constant="10" id="wwC-Y4-qGa"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="X2B-Pr-YXE" firstAttribute="top" secondItem="LYM-NK-ovk" secondAttribute="bottom" constant="8" id="24A-h8-FKs"/>
+                        <constraint firstItem="LYM-NK-ovk" firstAttribute="centerX" secondItem="43a-6y-IF4" secondAttribute="centerX" id="5Da-G5-Gbk"/>
+                        <constraint firstItem="qxu-g8-Zvh" firstAttribute="top" secondItem="X2B-Pr-YXE" secondAttribute="bottom" constant="8" id="75O-Iq-gsK"/>
+                        <constraint firstItem="ktZ-oE-Hlu" firstAttribute="top" secondItem="43a-6y-IF4" secondAttribute="top" id="CgO-pp-aiq"/>
+                        <constraint firstItem="qxu-g8-Zvh" firstAttribute="centerX" secondItem="43a-6y-IF4" secondAttribute="centerX" id="IAo-mL-KTj"/>
+                        <constraint firstAttribute="bottom" secondItem="qxu-g8-Zvh" secondAttribute="bottom" constant="8" id="PsG-KP-ZYU"/>
+                        <constraint firstItem="LYM-NK-ovk" firstAttribute="top" secondItem="ktZ-oE-Hlu" secondAttribute="bottom" constant="8" id="XTZ-MM-4fE"/>
+                        <constraint firstItem="ktZ-oE-Hlu" firstAttribute="centerX" secondItem="43a-6y-IF4" secondAttribute="centerX" id="jsk-OG-QYz"/>
+                        <constraint firstItem="X2B-Pr-YXE" firstAttribute="centerX" secondItem="43a-6y-IF4" secondAttribute="centerX" id="yrK-xq-LEh"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="43a-6y-IF4" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="53D-h2-P1E"/>
+                <constraint firstItem="43a-6y-IF4" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" constant="-30" id="GJA-hK-NM8"/>
+                <constraint firstItem="43a-6y-IF4" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="GY2-iY-10V"/>
+                <constraint firstItem="ktZ-oE-Hlu" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="114 / 375" id="HYF-fi-a9T"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-14.503816793893129" y="-12.67605633802817"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_empty_favorite" width="113" height="104"/>
+    </resources>
+</document>
