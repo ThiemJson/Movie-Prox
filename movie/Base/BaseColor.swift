@@ -54,7 +54,7 @@ extension UIColor {
     }
     
     static var baseBackground: UIColor {
-        return UIColor(named: "baseBackground") ?? .rgb(0x121212)
+        return UIColor(named: "baseBackground") ?? .rgb(0xFEFEFE)
     }
     
     static var tabbarBackground: UIColor {

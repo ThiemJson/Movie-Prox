@@ -47,21 +47,21 @@ class AnimateTabbar: SHCircleBarController {
     
     private func setupTabbar() {
         /** `Movies` */
-        let moviesNav   = MovieTVShowVC().embedInNavigationController()
+        let moviesNav   = MovieTVShowVC(MovieTVShowVMObject()).embedInNavigationController()
         moviesNav.viewControllers.first?.view.backgroundColor = .green
         moviesNav.tabBarItem.image = UIImage(named: "ic_tabbar_moive_untick")
         moviesNav.tabBarItem.selectedImage = UIImage(named: "ic_tabbar_movie_tick")
         moviesNav.tabBarItem.title   = "Movie"
         
         /** `TV Show` */
-        let tvShowsNav  = MovieTVShowVC().embedInNavigationController()
+        let tvShowsNav  = MovieTVShowVC(MovieTVShowVMObject()).embedInNavigationController()
         tvShowsNav.viewControllers.first?.view.backgroundColor = .blue
         tvShowsNav.tabBarItem.image = UIImage(named: "ic_tabbar_tvshow_untick")
         tvShowsNav.tabBarItem.selectedImage = UIImage(named: "ic_tabbar_tvshow_tick")
         tvShowsNav.tabBarItem.title   = "TV Show"
         
         /** `Selfie` */
-        let selfieVC = MovieTVShowVC()
+        let selfieVC = MovieTVShowVC(MovieTVShowVMObject()).embedInNavigationController()
         selfieVC.view.backgroundColor = .systemTeal
         selfieVC.tabBarItem.title   = "Selfie"
         /** `Không thủng` */
@@ -69,18 +69,18 @@ class AnimateTabbar: SHCircleBarController {
         selfieVC.tabBarItem.selectedImage = UIImage(named: "ic_tabbar_tvshow_tick")
         
         /** `Setting` */
-        let settingVC = MovieTVShowVC()
+        let settingVC = MovieTVShowVC(MovieTVShowVMObject()).embedInNavigationController()
         settingVC.view.backgroundColor = .brown
         settingVC.tabBarItem.title = "SettingVC"
         
         /** `Tracking` */
-        let trackingVC = MovieTVShowVC().embedInNavigationController()
+        let trackingVC = MovieTVShowVC(MovieTVShowVMObject()).embedInNavigationController()
         trackingVC.viewControllers.first?.view.backgroundColor = .systemTeal
         trackingVC.tabBarItem.image = UIImage(named: "ic_tabbar_traking_untick")
         trackingVC.tabBarItem.selectedImage = UIImage(named: "ic_tabbar_traking_tick")
         trackingVC.tabBarItem.title = "Tracking"
         
-        let favoriteVC = MovieTVShowVC().embedInNavigationController()
+        let favoriteVC = MovieTVShowVC(MovieTVShowVMObject()).embedInNavigationController()
         favoriteVC.viewControllers.first?.view.backgroundColor = .systemYellow
         favoriteVC.tabBarItem.image = UIImage(named: "ic_tabbar_favotite_untick")
         favoriteVC.tabBarItem.selectedImage = UIImage(named: "ic_tabbar_favorite_tick")
