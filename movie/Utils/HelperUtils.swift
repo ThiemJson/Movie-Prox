@@ -50,18 +50,18 @@ struct HelperUtils {
         return "\(BaseRouter.baseImgURL)/\(size.rawValue)\(url)"
     }
     
-    //    static func getSubFromDateAndGenres(date: String, genres: [Int], prefix: Int = 3) -> String {
-    //        var sub     = ""
-    //        let genres  = genres.prefix(prefix).map { HomeDashboardVC.GENRES[$0]?.name ?? "" }
-    //        genres.forEach { item in
-    //            if item.isEmpty == false {
-    //                sub += "\(item) | "
-    //            }
-    //        }
-    //        if date.isEmpty {
-    //            return sub.trimmingCharacters(in: .whitespaces).prefix( max(sub.count - 2, 0)).description
-    //        }
-    //        return "\(sub) \(date)".trimmingCharacters(in: .whitespaces)
-    //    }
+    static func getSubFromDateAndGenres(date: String, genres: [Int], prefix: Int = 3) -> String {
+        var sub     = ""
+        let genres  = genres.prefix(prefix).map { MovieTVShowVC.GENRES[$0]?.name ?? "" }
+        genres.forEach { item in
+            if item.isEmpty == false {
+                sub += "\(item) • "
+            }
+        }
+        if date.isEmpty {
+            return sub.trimmingCharacters(in: .whitespaces).prefix( max(sub.count - 2, 0)).description
+        }
+        return "\(sub) \(date)".trimmingCharacters(in: .whitespaces)
+    }
 }
 

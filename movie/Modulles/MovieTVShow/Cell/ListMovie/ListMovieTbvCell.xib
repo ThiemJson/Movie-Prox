@@ -1,21 +1,53 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ListMovieTbvCell" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="154" id="KGk-i7-Jjw" customClass="ListMovieTbvCell" customModule="movie" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="279" height="154"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="279" height="154"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p89-T5-7Rd" userLabel="fsPagerView" customClass="FSPagerView" customModule="FSPagerView">
+                        <rect key="frame" x="0.0" y="0.0" width="279" height="154"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNn-TD-PBC" userLabel="vPageControl" customClass="FSPageControl" customModule="FSPagerView">
+                        <rect key="frame" x="42" y="134" width="195" height="20"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="iqS-e2-zhM"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="p89-T5-7Rd" secondAttribute="bottom" id="0lO-Iz-wgf"/>
+                    <constraint firstItem="p89-T5-7Rd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Nvl-3d-VUX"/>
+                    <constraint firstAttribute="trailing" secondItem="p89-T5-7Rd" secondAttribute="trailing" id="ZqD-gf-dfn"/>
+                    <constraint firstItem="p89-T5-7Rd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wdY-n9-9UH"/>
+                    <constraint firstAttribute="bottom" secondItem="bNn-TD-PBC" secondAttribute="bottom" id="z8Q-kn-OID"/>
+                </constraints>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="bNn-TD-PBC" firstAttribute="centerX" secondItem="KGk-i7-Jjw" secondAttribute="centerX" id="G43-z8-Pcb"/>
+                <constraint firstItem="bNn-TD-PBC" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="0.7" id="SrS-zE-N9M"/>
+            </constraints>
+            <connections>
+                <outlet property="fsPageControl" destination="bNn-TD-PBC" id="ECI-Lh-icR"/>
+                <outlet property="fsPagerView" destination="p89-T5-7Rd" id="xAo-1d-Esc"/>
+                <outlet property="vContentView" destination="H2p-sc-9uM" id="lYs-oz-VoN"/>
+            </connections>
+            <point key="canvasLocation" x="-87.786259541984734" y="27.464788732394368"/>
         </tableViewCell>
     </objects>
 </document>

@@ -18,6 +18,7 @@ enum MovieTVShowType {
 enum MovieTVShowDashBoardCellType {
     case ListMovie
     case TopView
+    case ListGenre
     //case Ads
     case NewMovie
     case PopularPeople
@@ -39,7 +40,7 @@ class MovieTVShowVC: BaseViewModelController<MovieTVShowVM> {
     
     /** `Type` */
     var homeDashboardType : MovieTVShowType   = .Movie
-    var dataContent : [MovieTVShowDashBoardCellType]   = [.ListMovie, .TopView, .NewMovie, .PopularPeople]
+    var dataContent : [MovieTVShowDashBoardCellType]   = [.ListGenre, .ListMovie, .TopView, .PopularPeople]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +62,12 @@ class MovieTVShowVC: BaseViewModelController<MovieTVShowVM> {
                 guard let `self` = self else { return }
                 
                 let listGenre = genres.genres
+                self.genresContentData = genres.genres
                 self.selectedGenres = listGenre.first
+                
+                /** `List Genres` */
+                let indexPath   = IndexPath(row: 0, section: 0)
+                self.tbvContent.reloadRows(at: [indexPath], with: .automatic)
                 
                 viewModel.getMoviePopular(query: query)
                 viewModel.getMovieTopRated(query: query)
@@ -82,6 +88,11 @@ class MovieTVShowVC: BaseViewModelController<MovieTVShowVM> {
             
             let listGenre = genres.genres
             self.selectedGenres = listGenre.first
+            self.genresContentData = genres.genres
+            
+            /** `List Genres` */
+            let indexPath   = IndexPath(row: 0, section: 0)
+            self.tbvContent.reloadRows(at: [indexPath], with: .automatic)
             
             viewModel.getTVPopular(query: query)
             viewModel.getTVTopRated(query: query)
@@ -152,6 +163,12 @@ class MovieTVShowVC: BaseViewModelController<MovieTVShowVM> {
         self.tbvContent.delegate        = self
         self.tbvContent.dataSource      = self
         self.tbvContent.contentInsetAdjustmentBehavior  = .never
+        /** `Inset` */
+        let contentInset    = UIEdgeInsets(top: self.vNavBar.frame.height + BaseUtils.safeInsets.top,
+                                           left: 0,
+                                           bottom: 70,
+                                           right: 0)
+        self.tbvContent.contentInset    = contentInset
         
         /** `Refresh control` */
         self.refreshControl.tintColor   = .white
@@ -169,8 +186,8 @@ class MovieTVShowVC: BaseViewModelController<MovieTVShowVM> {
         let topview   = UINib(nibName: TopViewTbvCell.nibName, bundle: nil)
         self.tbvContent.register(topview, forCellReuseIdentifier: TopViewTbvCell.nibName)
         
-        let newmovie    = UINib(nibName: NewMovieTbvCell.nibName, bundle: nil)
-        self.tbvContent.register(newmovie, forCellReuseIdentifier: NewMovieTbvCell.nibName)
+        let newmovie    = UINib(nibName: TopViewTbvCell.nibName, bundle: nil)
+        self.tbvContent.register(newmovie, forCellReuseIdentifier: TopViewTbvCell.nibName)
         
         let popuplar = UINib(nibName: PopularPeopleTbvCell.nibName, bundle: nil)
         self.tbvContent.register(popuplar, forCellReuseIdentifier: PopularPeopleTbvCell.nibName)
@@ -229,20 +246,24 @@ extension MovieTVShowVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch self.dataContent[indexPath.row] {
+        case .ListGenre:
+            let cell = tableView.dequeueReusableCell(withIdentifier: ListGenresTbvCell.nibName, for: indexPath) as! ListGenresTbvCell
+            cell.contentData = self.genresContentData
+            return cell
         case .ListMovie:
             if let cell = tableView.dequeueReusableCell(withIdentifier: ListMovieTbvCell.nibName, for: indexPath) as? ListMovieTbvCell {
                 cell.selectionStyle = .none
-                //                cell.type   = self.homeDashboardType
-                //                if self.homeDashboardType == .Movie {
-                //                    let data            = self.viewModel?.rx_Movies_Playing.value?.results ?? []
-                //                    cell.contentData    = Array(data.prefix(5))
-                //                } else {
-                //                    let data            = self.viewModel?.rx_TVShow_Playing.value?.results ?? []
-                //                    cell.contentData    = Array(data.prefix(5))
-                //                }
+                cell.type   = self.homeDashboardType
+                if self.homeDashboardType == .Movie {
+                    let data            = self.viewModel?.rx_Movies_Playing.value?.results ?? []
+                    cell.contentData    = Array(data.prefix(3))
+                } else {
+                    let data            = self.viewModel?.rx_TVShow_Playing.value?.results ?? []
+                    cell.contentData    = Array(data.prefix(3))
+                }
                 return cell
             }
-        case .TopView:
+        case .NewMovie:
             if let cell = tableView.dequeueReusableCell(withIdentifier: TopViewTbvCell.nibName, for: indexPath) as? TopViewTbvCell {
                 cell.selectionStyle = .none
                 //                cell.type       = self.homeDashboardType
@@ -256,26 +277,24 @@ extension MovieTVShowVC: UITableViewDelegate, UITableViewDataSource {
                 //                }
                 return cell
             }
-        case .NewMovie:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: NewMovieTbvCell.nibName, for: indexPath) as? NewMovieTbvCell {
-                //cell.type               = self.homeDashboardType
+        case .TopView:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: TopViewTbvCell.nibName, for: indexPath) as? TopViewTbvCell {
+                cell.type               = self.homeDashboardType
                 cell.selectionStyle = .none
-                //                if self.homeDashboardType == .Movie {
-                //                    let data            = self.viewModel?.rx_Movies_Popular.value?.results ?? []
-                //                    cell.contentData    = Array(data.prefix(5))
-                //                    cell.lblTitle.text  = "New Movie"
-                //                } else {
-                //                    cell.lblTitle.text  = "New Movie"
-                //                    let data            = self.viewModel?.rx_TVShow_Popular.value?.results ?? []
-                //                    cell.contentData    = Array(data.prefix(5))
-                //                }
+                if self.homeDashboardType == .Movie {
+                    let data            = self.viewModel?.rx_Movies_Popular.value?.results ?? []
+                    cell.contentData    = Array(data.prefix(7))
+                } else {
+                    let data            = self.viewModel?.rx_TVShow_Popular.value?.results ?? []
+                    cell.contentData    = Array(data.prefix(7))
+                }
                 return cell
             }
         case .PopularPeople:
             if let cell = tableView.dequeueReusableCell(withIdentifier: PopularPeopleTbvCell.nibName, for: indexPath) as? PopularPeopleTbvCell {
                 cell.selectionStyle = .none
-                //                cell.contentData    = self.viewModel?.rx_Actor.value?.results ?? []
-                //                cell.type           = self.homeDashboardType
+                cell.contentData    = self.viewModel?.rx_Actor.value?.results ?? []
+                cell.type           = self.homeDashboardType
                 return cell
             }
         }
@@ -285,9 +304,11 @@ extension MovieTVShowVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch self.dataContent[indexPath.row] {
+        case .ListGenre:
+            return UITableView.automaticDimension
         case .ListMovie:
             /** `Tỉ lệ 2:3` */
-            return UIScreen.main.bounds.width * (3/2)
+            return UIScreen.main.bounds.width * (582 / 824)
             //        case .Ads:
             //            let padding = (HelperUtils.isPad ? 16 : 8) * 2
             //            return CGFloat(UIScreen.main.bounds.width * (120 / 340) + CGFloat(padding))

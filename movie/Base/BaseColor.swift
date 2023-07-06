@@ -18,7 +18,7 @@ extension UIColor {
     }
     
     static var textPrimary: UIColor {
-        return UIColor(named: "Text Primary") ?? #colorLiteral(red: 0.0862745098, green: 0.1960784314, blue: 0.3333333333, alpha: 1)
+        return UIColor(named: "Text Primary") ?? .rgb(0x1E2C2C)
     }
     
     static var textSecondary: UIColor {

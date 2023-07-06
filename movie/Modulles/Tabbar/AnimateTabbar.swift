@@ -48,14 +48,12 @@ class AnimateTabbar: SHCircleBarController {
     private func setupTabbar() {
         /** `Movies` */
         let moviesNav   = MovieTVShowVC(MovieTVShowVMObject()).embedInNavigationController()
-        moviesNav.viewControllers.first?.view.backgroundColor = .green
         moviesNav.tabBarItem.image = UIImage(named: "ic_tabbar_moive_untick")
         moviesNav.tabBarItem.selectedImage = UIImage(named: "ic_tabbar_movie_tick")
         moviesNav.tabBarItem.title   = "Movie"
         
         /** `TV Show` */
         let tvShowsNav  = MovieTVShowVC(MovieTVShowVMObject()).embedInNavigationController()
-        tvShowsNav.viewControllers.first?.view.backgroundColor = .blue
         tvShowsNav.tabBarItem.image = UIImage(named: "ic_tabbar_tvshow_untick")
         tvShowsNav.tabBarItem.selectedImage = UIImage(named: "ic_tabbar_tvshow_tick")
         tvShowsNav.tabBarItem.title   = "TV Show"
